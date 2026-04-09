@@ -1,0 +1,6 @@
+# No ficheiro nginx-gitops.yaml
+spec:
+  type: ClusterIP  # <--- Muda de LoadBalancer para ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
