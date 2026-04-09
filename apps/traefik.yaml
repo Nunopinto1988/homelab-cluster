@@ -13,7 +13,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: traefik
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated:      # Isto ativa a sincronização automática
+      prune: true   # Apaga recursos no cluster se os apagares no Git
+      selfHeal: true # Se mudares algo manualmente no cluster, o Argo corrige
     createNamespace: true
