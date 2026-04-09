@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-gitops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-gitops
+  template:
+    metadata:
+      labels:
+        app: nginx-gitops
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-gitops-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx-gitops
